@@ -128,6 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Check-in & Check-out"),
+          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {
@@ -191,372 +192,424 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: MediaQuery.of(context).size.height * 0.7,
                       child: TabBarView(
                         children: [
+                          //-------------- Last Week --------------//
+                          Container(
+                              width: double.infinity,
+                              height: 100,
+                              child: lastWeekModels.isEmpty
+                                  ? MyStyle().showProgress()
+                                  : ListView.builder(
+                                      itemCount: lastWeekModels.length,
+                                      itemBuilder: ((context, index) =>
+                                          Container(
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      "${lastWeekModels[index].workdate}",
+                                                      style: TextStyle(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                      minFontSize: 10.0,
+                                                    ),
+                                                    Container(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.2,
+                                                      child: lastWeekModels[
+                                                                      index]
+                                                                  .workout ==
+                                                              null
+                                                          ? TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .push(MaterialPageRoute(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                CheckoutScreen(checkInModel: checkinModels[index])));
+                                                              },
+                                                              child:
+                                                                  AutoSizeText(
+                                                                "check out",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal),
+                                                                minFontSize:
+                                                                    8.0,
+                                                              ),
+                                                              style: TextButton.styleFrom(
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20.0)),
+                                                                  primary: Colors
+                                                                      .white,
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xffFF9800)),
+                                                            )
+                                                          : TextButton(
+                                                              onPressed: () {},
+                                                              child:
+                                                                  AutoSizeText(
+                                                                "Complete",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal),
+                                                                minFontSize:
+                                                                    8.0,
+                                                              ),
+                                                              style: TextButton.styleFrom(
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20.0)),
+                                                                  primary: Colors
+                                                                      .white,
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xff263A96)),
+                                                            ),
+                                                    )
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 12.0,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      "check in on ${lastWeekModels[index].workin}",
+                                                      style: TextStyle(
+                                                          fontSize: 9.0,
+                                                          fontWeight: FontWeight
+                                                              .normal),
+                                                      minFontSize: 7.0,
+                                                    ),
+                                                    lastWeekModels[index]
+                                                                .workout ==
+                                                            null
+                                                        ? AutoSizeText(
+                                                            "check out on ",
+                                                            style: TextStyle(
+                                                                fontSize: 9.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal),
+                                                            minFontSize: 7.0,
+                                                          )
+                                                        : AutoSizeText(
+                                                            "check out on ${lastWeekModels[index].workout}",
+                                                            style: TextStyle(
+                                                                fontSize: 9.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal),
+                                                            minFontSize: 7.0,
+                                                          ),
+                                                  ],
+                                                ),
+                                                Divider()
+                                              ],
+                                            ),
+                                          )),
+                                    )),
+                          //-------------- Last Week --------------//
+
+                          //-------------- This Week --------------//
+                          Container(
+                              width: double.infinity,
+                              height: 100,
+                              child: checkinModels.length > 0
+                                  ? ListView.builder(
+                                      itemCount: checkinModels.length,
+                                      itemBuilder: ((context, index) =>
+                                          Container(
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      "${checkinModels[index].workdate}",
+                                                      style: TextStyle(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                      minFontSize: 10.0,
+                                                    ),
+                                                    Container(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.2,
+                                                      child: checkinModels[
+                                                                      index]
+                                                                  .workout ==
+                                                              null
+                                                          ? TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .push(MaterialPageRoute(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                CheckoutScreen(checkInModel: checkinModels[index])));
+                                                              },
+                                                              child:
+                                                                  AutoSizeText(
+                                                                "check out",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal),
+                                                                minFontSize:
+                                                                    8.0,
+                                                              ),
+                                                              style: TextButton.styleFrom(
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20.0)),
+                                                                  primary: Colors
+                                                                      .white,
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xffFF9800)),
+                                                            )
+                                                          : TextButton(
+                                                              onPressed: () {},
+                                                              child:
+                                                                  AutoSizeText(
+                                                                "Complete",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal),
+                                                                minFontSize:
+                                                                    8.0,
+                                                              ),
+                                                              style: TextButton.styleFrom(
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20.0)),
+                                                                  primary: Colors
+                                                                      .white,
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xff263A96)),
+                                                            ),
+                                                    )
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 12.0,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      "check in on ${checkinModels[index].workin}",
+                                                      style: TextStyle(
+                                                          fontSize: 9.0,
+                                                          fontWeight: FontWeight
+                                                              .normal),
+                                                      minFontSize: 7.0,
+                                                    ),
+                                                    checkinModels[index]
+                                                                .workout ==
+                                                            null
+                                                        ? AutoSizeText(
+                                                            "check out on ",
+                                                            style: TextStyle(
+                                                                fontSize: 9.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal),
+                                                            minFontSize: 7.0,
+                                                          )
+                                                        : AutoSizeText(
+                                                            "check out on ${checkinModels[index].workout}",
+                                                            style: TextStyle(
+                                                                fontSize: 9.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal),
+                                                            minFontSize: 7.0,
+                                                          ),
+                                                  ],
+                                                ),
+                                                Divider()
+                                              ],
+                                            ),
+                                          )),
+                                    )
+                                  : MyStyle().showProgress()),
+                          //-------------- This Week --------------//
+
+                          //-------------- This Month --------------//
                           Container(
                             width: double.infinity,
                             height: 100,
-                            child: ListView.builder(
-                              itemCount: lastWeekModels.length,
-                              itemBuilder: ((context, index) => Container(
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "${lastWeekModels[index].workdate}",
-                                              style: TextStyle(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.bold),
-                                              minFontSize: 10.0,
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.2,
-                                              child: lastWeekModels[index]
-                                                          .workout ==
-                                                      null
-                                                  ? TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                CheckoutScreen(
-                                                                    checkInModel:
-                                                                        checkinModels[
-                                                                            index])));
-                                                      },
-                                                      child: AutoSizeText(
-                                                        "check out",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xffFF9800)),
-                                                    )
-                                                  : TextButton(
-                                                      onPressed: () {},
-                                                      child: AutoSizeText(
-                                                        "Complete",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xff263A96)),
-                                                    ),
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 12.0,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "check in on ${lastWeekModels[index].workin}",
-                                              style: TextStyle(
-                                                  fontSize: 9.0,
-                                                  fontWeight:
-                                                      FontWeight.normal),
-                                              minFontSize: 7.0,
-                                            ),
-                                            lastWeekModels[index].workout ==
-                                                    null
-                                                ? AutoSizeText(
-                                                    "check out on ",
+                            child: thisMonthModels.isEmpty
+                                ? MyStyle().showProgress()
+                                : ListView.builder(
+                                    itemCount: thisMonthModels.length,
+                                    itemBuilder: ((context, index) => Container(
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  AutoSizeText(
+                                                    "${thisMonthModels[index].workdate}",
                                                     style: TextStyle(
-                                                        fontSize: 9.0,
+                                                        fontSize: 12.0,
                                                         fontWeight:
-                                                            FontWeight.normal),
-                                                    minFontSize: 7.0,
+                                                            FontWeight.bold),
+                                                    minFontSize: 10.0,
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                    child: thisMonthModels[
+                                                                    index]
+                                                                .workout ==
+                                                            null
+                                                        ? TextButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .push(MaterialPageRoute(
+                                                                      builder: (context) =>
+                                                                          CheckoutScreen(
+                                                                              checkInModel: thisMonthModels[index])));
+                                                            },
+                                                            child: AutoSizeText(
+                                                              "check out",
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      10.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal),
+                                                              minFontSize: 8.0,
+                                                            ),
+                                                            style: TextButton.styleFrom(
+                                                                shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20.0)),
+                                                                primary: Colors
+                                                                    .white,
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0xffFF9800)),
+                                                          )
+                                                        : TextButton(
+                                                            onPressed: () {},
+                                                            child: AutoSizeText(
+                                                              "Complete",
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      10.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal),
+                                                              minFontSize: 8.0,
+                                                            ),
+                                                            style: TextButton.styleFrom(
+                                                                shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20.0)),
+                                                                primary: Colors
+                                                                    .white,
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0xff263A96)),
+                                                          ),
                                                   )
-                                                : AutoSizeText(
-                                                    "check out on ${lastWeekModels[index].workout}",
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 12.0,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  AutoSizeText(
+                                                    "check in on ${thisMonthModels[index].workin}",
                                                     style: TextStyle(
                                                         fontSize: 9.0,
                                                         fontWeight:
                                                             FontWeight.normal),
                                                     minFontSize: 7.0,
                                                   ),
-                                          ],
-                                        ),
-                                        Divider()
-                                      ],
-                                    ),
-                                  )),
-                            ),
+                                                  thisMonthModels[index]
+                                                              .workout ==
+                                                          null
+                                                      ? AutoSizeText(
+                                                          "check out on ",
+                                                          style: TextStyle(
+                                                              fontSize: 9.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal),
+                                                          minFontSize: 7.0,
+                                                        )
+                                                      : AutoSizeText(
+                                                          "check out on ${thisMonthModels[index].workout}",
+                                                          style: TextStyle(
+                                                              fontSize: 9.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal),
+                                                          minFontSize: 7.0,
+                                                        ),
+                                                ],
+                                              ),
+                                              Divider()
+                                            ],
+                                          ),
+                                        )),
+                                  ),
                           ),
-                          Container(
-                            width: double.infinity,
-                            height: 100,
-                            child: ListView.builder(
-                              itemCount: checkinModels.length,
-                              itemBuilder: ((context, index) => Container(
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "${checkinModels[index].workdate}",
-                                              style: TextStyle(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.bold),
-                                              minFontSize: 10.0,
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.2,
-                                              child: checkinModels[index]
-                                                          .workout ==
-                                                      null
-                                                  ? TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                CheckoutScreen(
-                                                                    checkInModel:
-                                                                        checkinModels[
-                                                                            index])));
-                                                      },
-                                                      child: AutoSizeText(
-                                                        "check out",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xffFF9800)),
-                                                    )
-                                                  : TextButton(
-                                                      onPressed: () {},
-                                                      child: AutoSizeText(
-                                                        "Complete",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xff263A96)),
-                                                    ),
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 12.0,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "check in on ${checkinModels[index].workin}",
-                                              style: TextStyle(
-                                                  fontSize: 9.0,
-                                                  fontWeight:
-                                                      FontWeight.normal),
-                                              minFontSize: 7.0,
-                                            ),
-                                            checkinModels[index].workout == null
-                                                ? AutoSizeText(
-                                                    "check out on ",
-                                                    style: TextStyle(
-                                                        fontSize: 9.0,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                    minFontSize: 7.0,
-                                                  )
-                                                : AutoSizeText(
-                                                    "check out on ${checkinModels[index].workout}",
-                                                    style: TextStyle(
-                                                        fontSize: 9.0,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                    minFontSize: 7.0,
-                                                  ),
-                                          ],
-                                        ),
-                                        Divider()
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          //-----------------  This Month --------------------//
-                          Container(
-                            width: double.infinity,
-                            height: 100,
-                            child: ListView.builder(
-                              itemCount: thisMonthModels.length,
-                              itemBuilder: ((context, index) => Container(
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "${thisMonthModels[index].workdate}",
-                                              style: TextStyle(
-                                                  fontSize: 12.0,
-                                                  fontWeight: FontWeight.bold),
-                                              minFontSize: 10.0,
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.2,
-                                              child: thisMonthModels[index]
-                                                          .workout ==
-                                                      null
-                                                  ? TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                CheckoutScreen(
-                                                                    checkInModel:
-                                                                        thisMonthModels[
-                                                                            index])));
-                                                      },
-                                                      child: AutoSizeText(
-                                                        "check out",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xffFF9800)),
-                                                    )
-                                                  : TextButton(
-                                                      onPressed: () {},
-                                                      child: AutoSizeText(
-                                                        "Complete",
-                                                        style: TextStyle(
-                                                            fontSize: 10.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                        minFontSize: 8.0,
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0)),
-                                                          primary: Colors.white,
-                                                          backgroundColor:
-                                                              Color(
-                                                                  0xff263A96)),
-                                                    ),
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 12.0,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            AutoSizeText(
-                                              "check in on ${thisMonthModels[index].workin}",
-                                              style: TextStyle(
-                                                  fontSize: 9.0,
-                                                  fontWeight:
-                                                      FontWeight.normal),
-                                              minFontSize: 7.0,
-                                            ),
-                                            thisMonthModels[index].workout ==
-                                                    null
-                                                ? AutoSizeText(
-                                                    "check out on ",
-                                                    style: TextStyle(
-                                                        fontSize: 9.0,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                    minFontSize: 7.0,
-                                                  )
-                                                : AutoSizeText(
-                                                    "check out on ${thisMonthModels[index].workout}",
-                                                    style: TextStyle(
-                                                        fontSize: 9.0,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                    minFontSize: 7.0,
-                                                  ),
-                                          ],
-                                        ),
-                                        Divider()
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
+                          //-------------- This Month --------------//
                         ],
                       ),
                     ),
@@ -623,7 +676,9 @@ class _NavDrawerState extends State<NavDrawer> {
 
   Future<void> signOutProcess() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
+
     preferences.clear();
+
     //exit(0);
   }
 
@@ -707,15 +762,40 @@ class _NavDrawerState extends State<NavDrawer> {
                   color: Color(0xff263A96),
                 ),
                 title: const Text("Logout"),
-                onTap: () async {
-                  final prefs = await SharedPreferences.getInstance();
-                  prefs.setBool('showLogin', false);
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: Text("Are you sure you want to log out?"),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "Cancle",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            )),
+                        TextButton(
+                            onPressed: () async {
+                              final prefs =
+                                  await SharedPreferences.getInstance();
+                              prefs.setBool('showLogin', false);
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                              );
+                              signOutProcess();
+                            },
+                            child: Text(
+                              "Log Out",
+                              style: TextStyle(color: Colors.redAccent),
+                            ))
+                      ],
                     ),
+                    barrierDismissible: false,
                   );
-                  signOutProcess();
                 },
               ),
             ],

@@ -43,6 +43,8 @@ dependencies:
   auto_size_text: ^3.0.0
   sqflite: ^2.0.2
   intl: ^0.17.0
+  webview_flutter: ^3.0.2
+  package_info_plus: ^1.4.2
 
 dev_dependencies:
   flutter_test:

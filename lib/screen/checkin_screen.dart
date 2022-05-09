@@ -147,6 +147,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
       backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
         title: Text("Check in"),
+        centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
       body: SingleChildScrollView(

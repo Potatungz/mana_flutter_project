@@ -164,6 +164,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
         title: Text("Check Out"),
+        centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
       body: SingleChildScrollView(

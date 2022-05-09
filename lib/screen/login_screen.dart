@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
 
   bool statusRedEye = true;
+  bool isChecked = false;
   String? username;
   String? password;
 
@@ -35,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       String? username = preferences.getString("username");
+
       if (username != null && username.isNotEmpty) {
         if (username == "$username") {
           MaterialPageRoute route = MaterialPageRoute(
@@ -234,6 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
     await preferences.setString("userid", userModel.userid!);
     await preferences.setString("fullname", userModel.fullname!);
     await preferences.setString("username", userModel.username!);
+    await preferences.setBool("remember", isChecked);
 
     MaterialPageRoute route = MaterialPageRoute(builder: (context) => myWidget);
     Navigator.pushAndRemoveUntil(context, route, (route) => false);

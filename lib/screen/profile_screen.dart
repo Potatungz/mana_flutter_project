@@ -37,6 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: Color(0xffE9EBF4),
       appBar: AppBar(
         title: Text("Profile"),
+        centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
       body: SafeArea(
