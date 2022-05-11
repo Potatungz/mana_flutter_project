@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mana_app/screen/privacy_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:mana_app/screen/privacy_screen.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({Key? key}) : super(key: key);
@@ -31,7 +32,10 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     return Scaffold(
       backgroundColor: Color(0xffE9EBF4),
       appBar: AppBar(
-        title: Text("About us"),
+        title: Text(
+          "About us",
+          style: TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
@@ -47,7 +51,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       Icons.policy_outlined,
                       color: Color(0xff263A96),
                     ),
-                    title: const Text("Privacy policy"),
+                    title: Text("Privacy policy", style: GoogleFonts.dmSans()),
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const PrivacyPolicyScreen()));
@@ -64,7 +68,12 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       Icons.get_app,
                       color: Color(0xff263A96),
                     ),
-                    title: const Text("Version"),
+                    title: const Text(
+                      "Version",
+                      style: TextStyle(
+                        fontFamily: 'DMSans',
+                      ),
+                    ),
                     trailing: Text("${version} (${buildNumber})"),
                   ),
                 ),

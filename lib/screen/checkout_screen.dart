@@ -20,8 +20,10 @@ import 'home_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final CheckInModel checkInModel;
-  const CheckoutScreen({Key? key, required this.checkInModel})
-      : super(key: key);
+  const CheckoutScreen({
+    Key? key,
+    required this.checkInModel,
+  }) : super(key: key);
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -45,7 +47,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   List<CheckInModel> checkinModels = [];
 
   double? lat2, lng2;
-  // Location location = Location();
   var myDateTime = DateTime.now();
   var dateFormater = DateFormat.yMd();
   var timeFormater = DateFormat.Hms();
@@ -62,7 +63,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   void initState() {
     super.initState();
     checkInModel = widget.checkInModel;
-    // findLatLng();
     findMyLocation();
     readDataCheckIn();
   }
@@ -138,32 +138,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  // Future<Null> findLatLng() async {
-  //   LocationData? locationData = await findLocationData();
-  //   setState(() {
-  //     lat2 = locationData?.latitude;
-  //     lng2 = locationData?.longitude;
-  //   });
-
-  //   print("lat = $lat2, lng = $lng2");
-  //   print("Date ${dateFormater.format(myDateTime)}");
-  //   print("Time ${timeFormater.format(myDateTime)}");
-  // }
-
-  // Future<LocationData?> findLocationData() async {
-  //   try {
-  //     return location.getLocation();
-  //   } catch (e) {
-  //     return null;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
-        title: Text("Check Out"),
+        title: Text("Check Out",
+            style:
+                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
@@ -214,6 +196,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               child: Text(
                                 "Work Description",
                                 style: TextStyle(
+                                    fontFamily: 'DMSans',
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff191E2F)),
@@ -242,6 +225,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       AutoSizeText(
                                         "Latitude: ",
                                         style: TextStyle(
+                                            fontFamily: 'DMSans',
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff191E2F)),
@@ -253,6 +237,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             ? AutoSizeText(
                                                 "-",
                                                 style: TextStyle(
+                                                    fontFamily: 'DMSans',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -263,6 +248,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             : AutoSizeText(
                                                 "$lat2",
                                                 style: TextStyle(
+                                                    fontFamily: 'DMSans',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -289,6 +275,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           AutoSizeText(
                                             "Longitude: ",
                                             style: TextStyle(
+                                                fontFamily: 'DMSans',
                                                 fontSize: 10.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color(0xff191E2F)),
@@ -300,6 +287,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                 ? AutoSizeText(
                                                     "-",
                                                     style: TextStyle(
+                                                        fontFamily: 'DMSans',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -313,6 +301,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                 : AutoSizeText(
                                                     "$lng2",
                                                     style: TextStyle(
+                                                        fontFamily: 'DMSans',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -667,11 +656,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    AutoSizeText(
                                       "CheckOut Confirm ?",
                                       style: TextStyle(
+                                          fontFamily: 'DMSans',
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
+                                      minFontSize: 14.0,
                                     ),
                                     SizedBox(
                                       height: 10.0,
@@ -684,18 +675,23 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text(
+                                            AutoSizeText(
                                               "Check in Time",
                                               style: TextStyle(
+                                                  fontFamily: 'DMSans',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xff8D8D8D)),
+                                              minFontSize: 12.0,
                                             ),
-                                            Text("${checkInModel!.workin}",
-                                                style: TextStyle(
-                                                    fontSize: 15.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xff263A96)))
+                                            AutoSizeText(
+                                              "${checkInModel!.workin}",
+                                              style: TextStyle(
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff263A96)),
+                                              minFontSize: 12.0,
+                                            )
                                           ],
                                         ),
                                         Container(
@@ -707,18 +703,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text("Check in Out",
-                                                style: TextStyle(
-                                                    fontSize: 14.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: Color(0xff8D8D8D))),
-                                            Text(
-                                                "${timeFormater.format(myDateTime)}",
-                                                style: TextStyle(
-                                                    fontSize: 15.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xff263A96)))
+                                            AutoSizeText(
+                                              "Check in Out",
+                                              style: TextStyle(
+                                                  fontFamily: 'DMSans',
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Color(0xff8D8D8D)),
+                                              minFontSize: 12.0,
+                                            ),
+                                            AutoSizeText(
+                                              "${timeFormater.format(myDateTime)}",
+                                              style: TextStyle(
+                                                  fontFamily: 'DMSans',
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff263A96)),
+                                              minFontSize: 12.0,
+                                            )
                                           ],
                                         )
                                       ],
@@ -741,12 +743,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       onPressed: () async {
                                         insertDataCheckOut();
                                       },
-                                      child: const Text(
+                                      child: const AutoSizeText(
                                         "CONFIRM",
                                         style: TextStyle(
+                                          fontFamily: 'DMSans',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.bold,
                                         ),
+                                        minFontSize: 12.0,
                                       ),
                                       style: TextButton.styleFrom(
                                           shape: RoundedRectangleBorder(
@@ -762,12 +766,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: const Text(
+                                      child: const AutoSizeText(
                                         "CANCEL",
                                         style: TextStyle(
+                                          fontFamily: 'DMSans',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
+                                        minFontSize: 12.0,
                                       ),
                                       style: TextButton.styleFrom(
                                         shape: RoundedRectangleBorder(
@@ -803,8 +809,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         "${MyConstant().domain}/checkin/addDataCheckOut.php?isAdd=true&id=$idCheckIn&workdate_out=$workdate_out&workout=$workout&latitude_out=$latitude_out&longtitude_out=$longtitude_out";
     try {
       Response response = await Dio().get(urlAddDataCheckOut);
-
-      print("res = $response");
 
       if (response.toString() == 'true') {
         Navigator.pop(context);

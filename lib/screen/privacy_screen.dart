@@ -14,13 +14,15 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
     return Scaffold(
       backgroundColor: Color(0xffE9EBF4),
       appBar: AppBar(
-        title: const Text("Privacy Policy"),
+        title: const Text("Privacy Policy",
+            style:
+                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
       body: WebView(
         javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: "https://www.bangkokcable.com",
+        initialUrl: "https://www.bangkokcable.com/privacy_policy.php",
       ),
     );
   }

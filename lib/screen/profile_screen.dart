@@ -28,7 +28,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     userid = preferences.getString("userid");
     fullname = preferences.getString("fullname");
     setState(() {});
-    print("$userid");
   }
 
   @override
@@ -36,7 +35,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: Color(0xffE9EBF4),
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text("Profile",
+            style:
+                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
@@ -54,6 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "ชื่อ-นามสกุล",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff8D8D8D)),
@@ -61,6 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "$fullname",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 14.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff191E2F)),
@@ -71,12 +74,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "รหัสพนักงาน",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff8D8D8D)),
                     ),
                     Text("$userid",
                         style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff191E2F))),
@@ -86,12 +91,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "ตำแหน่ง",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff8D8D8D)),
                     ),
                     Text("-",
                         style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff191E2F))),
@@ -107,6 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Text("-",
                         style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff191E2F))),
@@ -116,12 +124,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "ฝ่าย",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff8D8D8D)),
                     ),
                     Text("-",
                         style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff191E2F))),
@@ -131,12 +141,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       "บริษัท",
                       style: TextStyle(
+                          fontFamily: 'DMSans',
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff8D8D8D)),
                     ),
                     Text("-",
                         style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff191E2F)))

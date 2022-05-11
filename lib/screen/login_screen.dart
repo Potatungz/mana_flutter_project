@@ -73,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         "MANA",
                         style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                            fontFamily: 'DMSans',
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -90,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "USERNAME",
                           style: TextStyle(
+                              fontFamily: 'DMSans',
                               fontSize: 12.0,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff191E2F)),
@@ -123,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "PASSWORD",
                           style: TextStyle(
+                              fontFamily: 'DMSans',
                               fontSize: 12.0,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff191E2F)),
@@ -172,6 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           "Login",
                           style: TextStyle(
+                            fontFamily: 'DMSans',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -184,13 +189,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           if ((username?.isEmpty ?? true) ||
                               (password?.isEmpty ?? true)) {
-                            print("Username :$username Password: $password");
-                            print("plese Insert Data");
                             normalDialog(
                                 context, "กรุณาใส่ชื่อผู้ใช้งาน และรหัสผ่าน");
                           } else {
-                            print("login success");
-
                             checkAuthen();
                           }
                         },
@@ -208,18 +209,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<Null> checkAuthen() async {
     print("Check Authen");
-    print("Username :$username Password: $password");
-    // String url =
-    //     "${MyConstant().domain}/checkin/getUserWhereUser.php?isAdd=true&username=$username";
-
     String url =
         "${MyConstant().domain}/checkin/getUserWhereUserAd.php?username=$username&password=$password";
+    print("url: $url");
     try {
       Response response = await Dio().get(url);
-      print("res = $response");
-
+      print("url: $response");
       var result = json.decode(response.data);
-      print("result = $result");
+      print("url: $result");
+
       if (result.isEmpty) {
         normalDialog(context,
             "ชื่อผู้ใช้ หรือรหัสผ่านของคุณไม่ถูกต้อง!! กรุณาลองอีกครั้ง");
