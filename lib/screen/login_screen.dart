@@ -7,6 +7,7 @@ import 'package:mana_app/screen/home_screen.dart';
 import 'package:mana_app/utility/dialog.dart';
 import 'package:mana_app/utility/my_constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../model/usermodel.dart';
 
@@ -67,7 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.7,
                         height: MediaQuery.of(context).size.height * 0.15,
-                        child: Image.asset("asset/logocheckin.png"),
+                        child: SvgPicture.asset("asset/logoapp.svg"),
+                        // child: Image.asset("asset/logocheckin.png"),
                       ),
                       SizedBox(),
                       Text(

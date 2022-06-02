@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mana_app/main.dart';
 import 'package:mana_app/model/check_in_model.dart';
 import 'package:mana_app/model/usermodel.dart';
@@ -196,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           labelColor: Colors.white,
                           labelStyle: TextStyle(
                               fontFamily: 'DMSans',
-                              fontSize: 14.0,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.bold),
                           unselectedLabelColor: Color(0xff263A96),
                           unselectedLabelStyle: TextStyle(
@@ -240,7 +241,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                       final lastWeekModels = snaplastweek.data!;
                                       return buildLastWeek(lastWeekModels);
                                     } else {
-                                      return Center(child: Text("ไม่พบข้อมูล"));
+                                      return Center(
+                                          child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.5,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.1,
+                                            child: SvgPicture.asset(
+                                              "asset/notfound.svg",
+                                              color: Color(0xffFF9800),
+                                            ),
+                                            // child: Image.asset("asset/logocheckin.png"),
+                                          ),
+                                          SizedBox(
+                                            height: 10.0,
+                                          ),
+                                          AutoSizeText(
+                                            "ไม่พบข้อมูล",
+                                            style: TextStyle(
+                                                fontSize: 21.0,
+                                                fontWeight: FontWeight.w700),
+                                            minFontSize: 18.0,
+                                          ),
+                                          AutoSizeText(
+                                            "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
+                                            style: TextStyle(
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.w500),
+                                            minFontSize: 11.0,
+                                          ),
+                                        ],
+                                      ));
                                     }
                                   })),
                           //-------------- Last Week --------------//
@@ -264,7 +303,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return buildLastWeek(checkInModels);
                                   } else {
                                     print("None Data");
-                                    return Center(child: Text("ไม่พบข้อมูล"));
+                                    return Center(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.5,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.1,
+                                          child: SvgPicture.asset(
+                                            "asset/notfound.svg",
+                                            color: Color(0xffFF9800),
+                                          ),
+                                          // child: Image.asset("asset/logocheckin.png"),
+                                        ),
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        AutoSizeText(
+                                          "ไม่พบข้อมูล",
+                                          style: TextStyle(
+                                              fontSize: 21.0,
+                                              fontWeight: FontWeight.w700),
+                                          minFontSize: 18.0,
+                                        ),
+                                        AutoSizeText(
+                                          "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
+                                          style: TextStyle(
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w500),
+                                          minFontSize: 11.0,
+                                        ),
+                                      ],
+                                    ));
                                   }
                                 }),
                           ),
@@ -287,7 +364,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return buildLastWeek(thisMonthModels);
                                   } else {
                                     print("None Data");
-                                    return Center(child: Text("ไม่พบข้อมูล"));
+                                    return Center(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.5,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.1,
+                                          child: SvgPicture.asset(
+                                            "asset/notfound.svg",
+                                            color: Color(0xffFF9800),
+                                          ),
+                                          // child: Image.asset("asset/logocheckin.png"),
+                                        ),
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        AutoSizeText(
+                                          "ไม่พบข้อมูล",
+                                          style: TextStyle(
+                                              fontSize: 21.0,
+                                              fontWeight: FontWeight.w700),
+                                          minFontSize: 18.0,
+                                        ),
+                                        AutoSizeText(
+                                          "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
+                                          style: TextStyle(
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w500),
+                                          minFontSize: 11.0,
+                                        ),
+                                      ],
+                                    ));
                                   }
                                 }),
                           )

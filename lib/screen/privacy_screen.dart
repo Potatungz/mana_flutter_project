@@ -22,7 +22,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       ),
       body: WebView(
         javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: "https://www.bangkokcable.com/privacy_policy.php",
+        initialUrl: "https://www.bangkokcable.com/th/pdpa",
       ),
     );
   }
