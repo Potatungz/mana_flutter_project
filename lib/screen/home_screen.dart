@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<List<CheckInModel>> readDataLastWeek() async {
-    print("read data last week");
     SharedPreferences preferences = await SharedPreferences.getInstance();
     userid = preferences.getString("userid");
 
@@ -68,33 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return lastWeekModels;
   }
 
-  // Future<void> readDataLastWeek() async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   userid = preferences.getString("userid");
-
-  //   String url =
-  //       "${MyConstant().domain}/checkin/getDataLastWeek.php?isAdd=true&id_pers=$userid";
-  //   print("url = $url");
-
-  //   await Dio().get(url).then(
-  //     (value) {
-  //       var result = json.decode(value.data);
-  //       for (var map in result) {
-  //         CheckInModel model = CheckInModel.fromJson(map);
-  //         String? modelCheckin = model.workdate;
-
-  //         if (modelCheckin!.isNotEmpty) {
-  //           setState(() {
-  //             lastWeekModels.add(model);
-  //           });
-  //         }
-  //       }
-  //     },
-  //   );
-  // }
-
   Future<List<CheckInModel>> readDataThisMonth() async {
-    print("read data this month");
     SharedPreferences preferences = await SharedPreferences.getInstance();
     userid = preferences.getString("userid");
 
@@ -121,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<List<CheckInModel>> readDataThisWeek() async {
-    print("read data this month");
     SharedPreferences preferences = await SharedPreferences.getInstance();
     userid = preferences.getString("userid");
     fullname = preferences.getString("fullname");
@@ -156,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text("Check-in & Check-out",
               style:
-                  TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
+                  TextStyle(fontFamily: 'Kanit', fontWeight: FontWeight.bold)),
           centerTitle: true,
           actions: [
             IconButton(
@@ -196,12 +168,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           labelColor: Colors.white,
                           labelStyle: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 12.0,
                               fontWeight: FontWeight.bold),
                           unselectedLabelColor: Color(0xff263A96),
                           unselectedLabelStyle: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 12.0,
                               fontWeight: FontWeight.w500),
                           tabs: [
@@ -257,25 +229,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 0.1,
                                             child: SvgPicture.asset(
                                               "asset/notfound.svg",
-                                              color: Color(0xffFF9800),
+                                              color: Color.fromARGB(
+                                                  255, 162, 165, 177),
                                             ),
                                             // child: Image.asset("asset/logocheckin.png"),
                                           ),
                                           SizedBox(
                                             height: 10.0,
                                           ),
-                                          AutoSizeText(
+                                          const AutoSizeText(
                                             "ไม่พบข้อมูล",
                                             style: TextStyle(
                                                 fontSize: 21.0,
-                                                fontWeight: FontWeight.w700),
+                                                fontWeight: FontWeight.w700,
+                                                fontFamily: 'Kanit'),
                                             minFontSize: 18.0,
                                           ),
-                                          AutoSizeText(
+                                          const AutoSizeText(
                                             "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
                                             style: TextStyle(
                                                 fontSize: 13.0,
-                                                fontWeight: FontWeight.w500),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: 'Kanit'),
                                             minFontSize: 11.0,
                                           ),
                                         ],
@@ -319,25 +294,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                               0.1,
                                           child: SvgPicture.asset(
                                             "asset/notfound.svg",
-                                            color: Color(0xffFF9800),
+                                            color: Color.fromARGB(
+                                                255, 162, 165, 177),
                                           ),
                                           // child: Image.asset("asset/logocheckin.png"),
                                         ),
                                         SizedBox(
                                           height: 10.0,
                                         ),
-                                        AutoSizeText(
+                                        const AutoSizeText(
                                           "ไม่พบข้อมูล",
                                           style: TextStyle(
                                               fontSize: 21.0,
-                                              fontWeight: FontWeight.w700),
+                                              fontWeight: FontWeight.w700,
+                                              fontFamily: 'Kanit'),
                                           minFontSize: 18.0,
                                         ),
-                                        AutoSizeText(
+                                        const AutoSizeText(
                                           "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
                                           style: TextStyle(
                                               fontSize: 13.0,
-                                              fontWeight: FontWeight.w500),
+                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Kanit'),
                                           minFontSize: 11.0,
                                         ),
                                       ],
@@ -380,25 +358,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                               0.1,
                                           child: SvgPicture.asset(
                                             "asset/notfound.svg",
-                                            color: Color(0xffFF9800),
+                                            color: Color.fromARGB(
+                                                255, 162, 165, 177),
                                           ),
-                                          // child: Image.asset("asset/logocheckin.png"),
                                         ),
                                         SizedBox(
                                           height: 10.0,
                                         ),
-                                        AutoSizeText(
+                                        const AutoSizeText(
                                           "ไม่พบข้อมูล",
                                           style: TextStyle(
                                               fontSize: 21.0,
-                                              fontWeight: FontWeight.w700),
+                                              fontWeight: FontWeight.w700,
+                                              fontFamily: 'Kanit'),
                                           minFontSize: 18.0,
                                         ),
-                                        AutoSizeText(
+                                        const AutoSizeText(
                                           "ขออภัย..ไม่พบข้อมูลการบันทึกเวลาของคุณในระบบ",
                                           style: TextStyle(
                                               fontSize: 13.0,
-                                              fontWeight: FontWeight.w500),
+                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Kanit'),
                                           minFontSize: 11.0,
                                         ),
                                       ],
@@ -420,28 +400,44 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 30.0),
           child: Container(
-            width: double.infinity,
             height: 50.0,
-            child: TextButton(
-              child: const Text(
-                "บันทึกเวลาเข้างาน",
-                style: TextStyle(
-                  fontFamily: 'DMSans',
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  primary: Colors.white,
-                  backgroundColor: Color(0xff263A96)),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xff263A96),
+                  textStyle: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Kanit')),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const CheckInScreen()));
               },
+              child: Text("บันทึกเวลาเข้างาน"),
             ),
           ),
+          // child: Container(
+          //   width: double.infinity,
+          //   height: 50.0,
+          //   child: TextButton(
+          //     child: const Text(
+          //       "บันทึกเวลาเข้างาน",
+          //       style: TextStyle(
+          //         fontFamily: 'Kanit',
+          //         fontSize: 14.0,
+          //         fontWeight: FontWeight.bold,
+          //       ),
+          //     ),
+          //     style: TextButton.styleFrom(
+          //         shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(10.0)),
+          //         primary: Colors.white,
+          //         backgroundColor: Color(0xff263A96)),
+          //     onPressed: () {
+          //       Navigator.of(context).push(MaterialPageRoute(
+          //           builder: (context) => const CheckInScreen()));
+          //     },
+          //   ),
+          // ),
         ),
       ),
     );
@@ -459,7 +455,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     AutoSizeText(
                       "${checkInModels[index].workdate}",
                       style: TextStyle(
-                          fontFamily: 'DMSans',
+                          fontFamily: 'Kanit',
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold),
                       minFontSize: 10.0,
@@ -476,7 +472,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: AutoSizeText(
                                 "check out",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 10.0,
                                     fontWeight: FontWeight.normal),
                                 minFontSize: 8.0,
@@ -493,7 +489,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: AutoSizeText(
                                 "Complete",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 10.0,
                                     fontWeight: FontWeight.normal),
                                 minFontSize: 8.0,
@@ -517,7 +513,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     AutoSizeText(
                       "check in on ${checkInModels[index].workin}",
                       style: TextStyle(
-                          fontFamily: 'DMSans',
+                          fontFamily: 'Kanit',
                           fontSize: 9.0,
                           fontWeight: FontWeight.normal),
                       minFontSize: 7.0,
@@ -526,7 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? AutoSizeText(
                             "check out on ",
                             style: TextStyle(
-                                fontFamily: 'DMSans',
+                                fontFamily: 'Kanit',
                                 fontSize: 9.0,
                                 fontWeight: FontWeight.normal),
                             minFontSize: 7.0,
@@ -534,7 +530,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         : AutoSizeText(
                             "check out on ${checkInModels[index].workout}",
                             style: TextStyle(
-                                fontFamily: 'DMSans',
+                                fontFamily: 'Kanit',
                                 fontSize: 9.0,
                                 fontWeight: FontWeight.normal),
                             minFontSize: 7.0,
@@ -561,7 +557,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     AutoSizeText(
                       "${lastWeekModels[index].workdate}",
                       style: TextStyle(
-                          fontFamily: 'DMSans',
+                          fontFamily: 'Kanit',
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold),
                       minFontSize: 10.0,
@@ -578,7 +574,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: AutoSizeText(
                                 "check out",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 10.0,
                                     fontWeight: FontWeight.normal),
                                 minFontSize: 8.0,
@@ -595,7 +591,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: AutoSizeText(
                                 "Complete",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 10.0,
                                     fontWeight: FontWeight.normal),
                                 minFontSize: 8.0,
@@ -619,7 +615,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     AutoSizeText(
                       "check in on ${lastWeekModels[index].workin}",
                       style: TextStyle(
-                          fontFamily: 'DMSans',
+                          fontFamily: 'Kanit',
                           fontSize: 9.0,
                           fontWeight: FontWeight.normal),
                       minFontSize: 7.0,
@@ -628,7 +624,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? AutoSizeText(
                             "check out on ",
                             style: TextStyle(
-                                fontFamily: 'DMSans',
+                                fontFamily: 'Kanit',
                                 fontSize: 9.0,
                                 fontWeight: FontWeight.normal),
                             minFontSize: 7.0,
@@ -636,7 +632,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         : AutoSizeText(
                             "check out on ${lastWeekModels[index].workout}",
                             style: TextStyle(
-                                fontFamily: 'DMSans',
+                                fontFamily: 'Kanit',
                                 fontSize: 9.0,
                                 fontWeight: FontWeight.normal),
                             minFontSize: 7.0,
@@ -663,7 +659,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                   AutoSizeText(
                     "${thisMonthModels[index].workdate}",
                     style: TextStyle(
-                        fontFamily: 'DMSans',
+                        fontFamily: 'Kanit',
                         fontSize: 12.0,
                         fontWeight: FontWeight.bold),
                     minFontSize: 10.0,
@@ -680,7 +676,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                             child: AutoSizeText(
                               "check out",
                               style: TextStyle(
-                                  fontFamily: 'DMSans',
+                                  fontFamily: 'Kanit',
                                   fontSize: 10.0,
                                   fontWeight: FontWeight.normal),
                               minFontSize: 8.0,
@@ -696,7 +692,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                             child: AutoSizeText(
                               "Complete",
                               style: TextStyle(
-                                  fontFamily: 'DMSans',
+                                  fontFamily: 'Kanit',
                                   fontSize: 10.0,
                                   fontWeight: FontWeight.normal),
                               minFontSize: 8.0,
@@ -719,7 +715,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                   AutoSizeText(
                     "check in on ${thisMonthModels[index].workin}",
                     style: TextStyle(
-                        fontFamily: 'DMSans',
+                        fontFamily: 'Kanit',
                         fontSize: 9.0,
                         fontWeight: FontWeight.normal),
                     minFontSize: 7.0,
@@ -728,7 +724,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                       ? AutoSizeText(
                           "check out on ",
                           style: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 9.0,
                               fontWeight: FontWeight.normal),
                           minFontSize: 7.0,
@@ -736,7 +732,7 @@ Widget buildThisMonth(List<CheckInModel> thisMonthModels) {
                       : AutoSizeText(
                           "check out on ${thisMonthModels[index].workout}",
                           style: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 9.0,
                               fontWeight: FontWeight.normal),
                           minFontSize: 7.0,
@@ -804,6 +800,7 @@ class _NavDrawerState extends State<NavDrawer> {
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Kanit',
                 color: Colors.white,
               ))
         ],
@@ -827,7 +824,7 @@ class _NavDrawerState extends State<NavDrawer> {
                 title: const Text(
                   "Home",
                   style: TextStyle(
-                    fontFamily: 'DMSans',
+                    fontFamily: 'Kanit',
                   ),
                 ),
                 onTap: () {
@@ -843,7 +840,7 @@ class _NavDrawerState extends State<NavDrawer> {
                 title: const Text(
                   "Profile",
                   style: TextStyle(
-                    fontFamily: 'DMSans',
+                    fontFamily: 'Kanit',
                   ),
                 ),
                 onTap: () {
@@ -860,7 +857,7 @@ class _NavDrawerState extends State<NavDrawer> {
                 title: const Text(
                   "About us",
                   style: TextStyle(
-                    fontFamily: 'DMSans',
+                    fontFamily: 'Kanit',
                   ),
                 ),
                 onTap: () {
@@ -878,7 +875,7 @@ class _NavDrawerState extends State<NavDrawer> {
                 title: const Text(
                   "Logout",
                   style: TextStyle(
-                    fontFamily: 'DMSans',
+                    fontFamily: 'Kanit',
                   ),
                 ),
                 onTap: () {
@@ -888,7 +885,7 @@ class _NavDrawerState extends State<NavDrawer> {
                       title: Text(
                         "Are you sure you want to log out?",
                         style: TextStyle(
-                          fontFamily: 'DMSans',
+                          fontFamily: 'Kanit',
                         ),
                       ),
                       actions: [
@@ -899,7 +896,7 @@ class _NavDrawerState extends State<NavDrawer> {
                             child: Text(
                               "Cancle",
                               style: TextStyle(
-                                  fontFamily: 'DMSans',
+                                  fontFamily: 'Kanit',
                                   fontWeight: FontWeight.bold),
                             )),
                         TextButton(
@@ -920,8 +917,7 @@ class _NavDrawerState extends State<NavDrawer> {
                             child: Text(
                               "Log Out",
                               style: TextStyle(
-                                  fontFamily: 'DMSans',
-                                  color: Colors.redAccent),
+                                  fontFamily: 'Kanit', color: Colors.redAccent),
                             ))
                       ],
                     ),

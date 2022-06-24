@@ -8,7 +8,7 @@ Future<Null> normalDialog(BuildContext context, String string) async {
               title: Text(string,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontFamily: 'DMSans',
+                      fontFamily: 'Kanit',
                       color: Color(0xff354373),
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold)),
@@ -22,7 +22,10 @@ Future<Null> normalDialog(BuildContext context, String string) async {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("ตกลง"))
+                  child: Text(
+                    "ตกลง",
+                    style: TextStyle(fontFamily: 'Kanit'),
+                  ))
             ],
           ));
 }

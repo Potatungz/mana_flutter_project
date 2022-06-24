@@ -34,7 +34,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       appBar: AppBar(
         title: Text(
           "About us",
-          style: TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold),
+          style: TextStyle(fontFamily: 'Kanit', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
@@ -51,7 +51,12 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       Icons.policy_outlined,
                       color: Color(0xff263A96),
                     ),
-                    title: Text("Privacy policy", style: GoogleFonts.dmSans()),
+                    title: Text(
+                      "Privacy policy",
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                      ),
+                    ),
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const PrivacyPolicyScreen()));
@@ -71,7 +76,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     title: const Text(
                       "Version",
                       style: TextStyle(
-                        fontFamily: 'DMSans',
+                        fontFamily: 'Kanit',
                       ),
                     ),
                     trailing: Text("${version} (${buildNumber})"),

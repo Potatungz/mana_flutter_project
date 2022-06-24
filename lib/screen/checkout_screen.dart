@@ -46,7 +46,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   List<CheckInModel> checkinModels = [];
 
-  double? lat2, lng2;
+  double? lat1, lng1, lat2, lng2;
   var myDateTime = DateTime.now();
   var dateFormater = DateFormat.yMd();
   var timeFormater = DateFormat.Hms();
@@ -123,7 +123,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     await Dio().get(url).then(
       (value) {
         var result = json.decode(value.data);
-        print("result ====> $result");
         for (var map in result) {
           CheckInModel model = CheckInModel.fromJson(map);
           String? modelCheckin = model.workin;
@@ -144,8 +143,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
         title: Text("Check Out",
-            style:
-                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
+            style: TextStyle(fontFamily: 'Kanit', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
@@ -196,7 +194,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               child: Text(
                                 "Work Description",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff191E2F)),
@@ -225,7 +223,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       AutoSizeText(
                                         "Latitude: ",
                                         style: TextStyle(
-                                            fontFamily: 'DMSans',
+                                            fontFamily: 'Kanit',
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff191E2F)),
@@ -237,7 +235,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             ? AutoSizeText(
                                                 "-",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -248,7 +246,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             : AutoSizeText(
                                                 "$lat2",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -275,7 +273,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           AutoSizeText(
                                             "Longitude: ",
                                             style: TextStyle(
-                                                fontFamily: 'DMSans',
+                                                fontFamily: 'Kanit',
                                                 fontSize: 10.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color(0xff191E2F)),
@@ -287,7 +285,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                 ? AutoSizeText(
                                                     "-",
                                                     style: TextStyle(
-                                                        fontFamily: 'DMSans',
+                                                        fontFamily: 'Kanit',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -301,7 +299,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                 : AutoSizeText(
                                                     "$lng2",
                                                     style: TextStyle(
-                                                        fontFamily: 'DMSans',
+                                                        fontFamily: 'Kanit',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -368,6 +366,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: 'Kanit',
                                     color: Color(0xff191E2F)),
                               ),
                             ),
@@ -395,6 +394,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           style: TextStyle(
                                               fontSize: 10.0,
                                               fontWeight: FontWeight.w500,
+                                              fontFamily: "Kanit",
                                               color: Color(0xff474747)),
                                           overflow: TextOverflow.ellipsis,
                                           minFontSize: 8.0,
@@ -466,6 +466,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         style: TextStyle(
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.bold,
+                                            fontFamily: 'Kanit',
                                             color: Color(0xff191E2F))),
                                   ],
                                 ),
@@ -481,6 +482,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     style: TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'Kanit',
                                         color: Color(0xff474747)),
                                   ))),
                             )
@@ -526,6 +528,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         style: TextStyle(
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.bold,
+                                            fontFamily: 'Kanit',
                                             color: Color(0xff191E2F))),
                                   ],
                                 ),
@@ -542,6 +545,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     style: TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'Kanit',
                                         color: Color(0xff474747)),
                                   ))),
                             )
@@ -561,23 +565,35 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         child: Container(
           width: double.infinity,
           height: 50.0,
-          child: TextButton(
-            child: const Text(
-              "บันทึกเวลาเลิกงาน",
-              style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                primary: Colors.white,
-                backgroundColor: Color(0xff263A96)),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                primary: Color(0xff263A96),
+                textStyle: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Kanit')),
             onPressed: () {
               showConfirmDialog();
             },
+            child: Text("บันทึกเวลาเลิกงาน"),
           ),
+          // child: TextButton(
+          //   child: const Text(
+          //     "บันทึกเวลาเลิกงาน",
+          //     style: TextStyle(
+          //       fontSize: 14.0,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          //   style: TextButton.styleFrom(
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(10.0)),
+          //       primary: Colors.white,
+          //       backgroundColor: Color(0xff263A96)),
+          //   onPressed: () {
+          //     showConfirmDialog();
+          //   },
+          // ),
         ),
       ),
     );
@@ -650,7 +666,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             ),
                           ),
                           Expanded(
-                            flex: 1,
+                            flex: 2,
                             child: Container(
                               child: Center(
                                 child: Column(
@@ -659,13 +675,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     AutoSizeText(
                                       "CheckOut Confirm ?",
                                       style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
                                       minFontSize: 14.0,
                                     ),
                                     SizedBox(
-                                      height: 10.0,
+                                      height: 5.0,
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -678,7 +694,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             AutoSizeText(
                                               "Check in Time",
                                               style: TextStyle(
-                                                  fontFamily: 'DMSans',
+                                                  fontFamily: 'Kanit',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xff8D8D8D)),
@@ -687,6 +703,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             AutoSizeText(
                                               "${checkInModel!.workin}",
                                               style: TextStyle(
+                                                  fontFamily: 'Kanit',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.bold,
                                                   color: Color(0xff263A96)),
@@ -706,7 +723,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             AutoSizeText(
                                               "Check in Out",
                                               style: TextStyle(
-                                                  fontFamily: 'DMSans',
+                                                  fontFamily: 'Kanit',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xff8D8D8D)),
@@ -715,7 +732,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             AutoSizeText(
                                               "${timeFormater.format(myDateTime)}",
                                               style: TextStyle(
-                                                  fontFamily: 'DMSans',
+                                                  fontFamily: 'Kanit',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.bold,
                                                   color: Color(0xff263A96)),
@@ -746,7 +763,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       child: const AutoSizeText(
                                         "CONFIRM",
                                         style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -769,7 +786,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       child: const AutoSizeText(
                                         "CANCEL",
                                         style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -815,9 +832,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         MaterialPageRoute route =
             MaterialPageRoute(builder: (context) => HomeScreen());
         Navigator.of(context).pushAndRemoveUntil(route, (route) => false);
-      } else {
-        print("Can't to Create Garage. Try Again");
-      }
+      } else {}
     } catch (e) {}
   }
 }

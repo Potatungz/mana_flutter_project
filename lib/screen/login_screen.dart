@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ffi';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mana_app/screen/home_screen.dart';
@@ -71,13 +72,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: SvgPicture.asset("asset/logoapp.svg"),
                         // child: Image.asset("asset/logocheckin.png"),
                       ),
-                      SizedBox(),
-                      Text(
-                        "MANA",
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      AutoSizeText(
+                        "Mana Check-in",
                         style: TextStyle(
-                            fontFamily: 'DMSans',
-                            fontSize: 18.0,
+                            fontFamily: 'Kanit',
+                            fontSize: 22.0,
                             fontWeight: FontWeight.bold),
+                        minFontSize: 18.0,
                       ),
                     ],
                   ),
@@ -94,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "USERNAME",
                           style: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 12.0,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff191E2F)),
@@ -128,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "PASSWORD",
                           style: TextStyle(
-                              fontFamily: 'DMSans',
+                              fontFamily: 'Kanit',
                               fontSize: 12.0,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff191E2F)),
@@ -178,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           "Login",
                           style: TextStyle(
-                            fontFamily: 'DMSans',
+                            fontFamily: 'Kanit',
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -210,15 +214,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<Null> checkAuthen() async {
-    print("Check Authen");
     String url =
         "${MyConstant().domain}/checkin/getUserWhereUserAd.php?username=$username&password=$password";
-    print("url: $url");
     try {
       Response response = await Dio().get(url);
-      print("url: $response");
       var result = json.decode(response.data);
-      print("url: $result");
 
       if (result.isEmpty) {
         normalDialog(context,

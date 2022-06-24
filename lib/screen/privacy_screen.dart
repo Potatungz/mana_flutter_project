@@ -15,8 +15,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       backgroundColor: Color(0xffE9EBF4),
       appBar: AppBar(
         title: const Text("Privacy Policy",
-            style:
-                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
+            style: TextStyle(fontFamily: 'Kanit', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),

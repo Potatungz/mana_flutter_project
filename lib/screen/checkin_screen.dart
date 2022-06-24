@@ -53,7 +53,6 @@ class _CheckInScreenState extends State<CheckInScreen> {
   @override
   void initState() {
     super.initState();
-    // findLatLng();
     findMyLocation();
   }
 
@@ -63,22 +62,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
       lat1 = position.latitude;
       lng1 = position.longitude;
     });
-    print("lat = $lat1, lng = $lng1");
     getAddress(position);
-  }
-
-  Future<Null> findLatLng() async {
-    // LocationData? locationData = await findLocationData();
-
-    setState(() {
-      // lat1 = locationData?.latitude;
-      // lng1 = locationData?.longitude;
-      // distance = calculateDistance(lat1!, lng1!, lat2!, lng2!);
-    });
-
-    print("lat = $lat1, lng = $lng1");
-    print("Date ${dateFormater.format(myDateTime)}");
-    print("Time ${timeFormater.format(myDateTime)}");
   }
 
   Future<void> getAddress(Position position) async {
@@ -138,8 +122,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
       backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
         title: Text("Check in",
-            style:
-                TextStyle(fontFamily: 'DMSans', fontWeight: FontWeight.bold)),
+            style: TextStyle(fontFamily: 'Kanit', fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Color(0xff263A96),
       ),
@@ -190,7 +173,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                               child: Text(
                                 "Work Description",
                                 style: TextStyle(
-                                    fontFamily: 'DMSans',
+                                    fontFamily: 'Kanit',
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff191E2F)),
@@ -219,7 +202,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                       AutoSizeText(
                                         "Lattitude: ",
                                         style: TextStyle(
-                                            fontFamily: 'DMSans',
+                                            fontFamily: 'Kanit',
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff191E2F)),
@@ -231,7 +214,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                             ? AutoSizeText(
                                                 "-",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -242,7 +225,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                             : AutoSizeText(
                                                 "$lat1",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 10.0,
                                                     fontWeight: FontWeight.w500,
                                                     color: Color(0xff474747)),
@@ -269,7 +252,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                           AutoSizeText(
                                             "Longitude: ",
                                             style: TextStyle(
-                                                fontFamily: 'DMSans',
+                                                fontFamily: 'Kanit',
                                                 fontSize: 10.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color(0xff191E2F)),
@@ -281,7 +264,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                                 ? AutoSizeText(
                                                     "-",
                                                     style: TextStyle(
-                                                        fontFamily: 'DMSans',
+                                                        fontFamily: 'Kanit',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -295,7 +278,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                                 : AutoSizeText(
                                                     "$lng1",
                                                     style: TextStyle(
-                                                        fontFamily: 'DMSans',
+                                                        fontFamily: 'Kanit',
                                                         fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -362,6 +345,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: 'Kanit',
                                     color: Color(0xff191E2F)),
                               ),
                             ),
@@ -389,6 +373,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                           style: TextStyle(
                                               fontSize: 10.0,
                                               fontWeight: FontWeight.w500,
+                                              fontFamily: 'Kanit',
                                               color: Color(0xff474747)),
                                           overflow: TextOverflow.ellipsis,
                                           minFontSize: 8.0,
@@ -399,6 +384,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                           style: TextStyle(
                                               fontSize: 10.0,
                                               fontWeight: FontWeight.w500,
+                                              fontFamily: 'Kanit',
                                               color: Color(0xff474747)),
                                           overflow: TextOverflow.ellipsis,
                                           minFontSize: 8.0,
@@ -460,6 +446,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                         style: TextStyle(
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.bold,
+                                            fontFamily: 'Kanit',
                                             color: Color(0xff191E2F))),
                                   ],
                                 ),
@@ -475,6 +462,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                     style: TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'Kanit',
                                         color: Color(0xff474747)),
                                   ))),
                             )
@@ -520,6 +508,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                         style: TextStyle(
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.bold,
+                                            fontFamily: 'Kanit',
                                             color: Color(0xff191E2F))),
                                   ],
                                 ),
@@ -533,9 +522,10 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                   child: Center(
                                       child: Text(
                                     "${timeFormater.format(myDateTime)}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'Kanit',
                                         color: Color(0xff474747)),
                                   ))),
                             )
@@ -555,23 +545,35 @@ class _CheckInScreenState extends State<CheckInScreen> {
         child: Container(
           width: double.infinity,
           height: 50.0,
-          child: TextButton(
-            child: const Text(
-              "บันทึกเวลาเข้างาน",
-              style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                primary: Colors.white,
-                backgroundColor: Color(0xff263A96)),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                primary: Color(0xff263A96),
+                textStyle: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Kanit')),
             onPressed: () {
               showConfirmDialog();
             },
+            child: Text("บันทึกเวลาเข้างาน"),
           ),
+          // child: TextButton(
+          //   child: const Text(
+          //     "บันทึกเวลาเข้างาน",
+          //     style: TextStyle(
+          //       fontSize: 14.0,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          //   style: TextButton.styleFrom(
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(10.0)),
+          //       primary: Colors.white,
+          //       backgroundColor: Color(0xff263A96)),
+          //   onPressed: () {
+          //     showConfirmDialog();
+          //   },
+          // ),
         ),
       ),
     );
@@ -644,7 +646,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                             ),
                           ),
                           Expanded(
-                            flex: 1,
+                            flex: 2,
                             child: Container(
                               child: Center(
                                 child: Column(
@@ -653,13 +655,13 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                     AutoSizeText(
                                       "Checkin Confirm ?",
                                       style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
                                       maxFontSize: 14.0,
                                     ),
                                     SizedBox(
-                                      height: 10.0,
+                                      height: 5.0,
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -671,7 +673,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                           children: [
                                             AutoSizeText("Check in Time",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 14.0,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -680,7 +682,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                             AutoSizeText(
                                                 "${timeFormater.format(myDateTime)}",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.bold,
                                                     color: Color(0xff263A96)),
@@ -698,7 +700,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                           children: [
                                             AutoSizeText("Check in Out",
                                                 style: TextStyle(
-                                                    fontFamily: 'DMSans',
+                                                    fontFamily: 'Kanit',
                                                     fontSize: 14.0,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -707,7 +709,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                             AutoSizeText(
                                               "00:00",
                                               style: TextStyle(
-                                                  fontFamily: 'DMSans',
+                                                  fontFamily: 'Kanit',
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xff8D8D8D)),
@@ -738,7 +740,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                       child: const Text(
                                         "CONFIRM",
                                         style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -760,7 +762,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
                                       child: const Text(
                                         "CANCEL",
                                         style: TextStyle(
-                                          fontFamily: 'DMSans',
+                                          fontFamily: 'Kanit',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -795,9 +797,6 @@ class _CheckInScreenState extends State<CheckInScreen> {
     latitude_in = lat1.toString();
     longitude_in = lng1.toString();
 
-    print(
-        "### m_id: $m_id, workdate_in: $workdate_in, workin: $workin,lat: $latitude_in, lng: $longitude_in");
-
     String urlAddDataCheckin =
         "${MyConstant().domain}/checkin/addDataCheckIn.php?isAdd=true&m_id=$m_id&workdate=$workdate_in&workin=$workin&latitude_in=$latitude_in&longitude_in=$longitude_in";
     try {
@@ -808,9 +807,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
         MaterialPageRoute route =
             MaterialPageRoute(builder: (context) => HomeScreen());
         Navigator.of(context).pushAndRemoveUntil(route, (route) => false);
-      } else {
-        print("Can't to Create Garage. Try Again");
-      }
+      } else {}
     } catch (e) {}
   }
 }

@@ -77,3 +77,11 @@ flutter:
       fonts:
         - asset: asset/fonts/DMSans-Regular.ttf
         - asset: asset/fonts/DMSans-Bold.ttf
+
+    - family: Kanit
+      fonts:
+        - asset: asset/fonts/Kanit-Bold.ttf
+        - asset: asset/fonts/Kanit-SemiBold.ttf
+        - asset: asset/fonts/Kanit-Medium.ttf
+        - asset: asset/fonts/Kanit-Regular.ttf
+        - asset: asset/fonts/Kanit-Light.ttf

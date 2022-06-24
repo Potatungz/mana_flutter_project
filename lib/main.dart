@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mana_app/screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -79,26 +80,32 @@ class _OnboardingPageState extends State<OnboardingPage> {
               const SizedBox(
                 height: 32,
               ),
-              Text(
+              AutoSizeText(
                 title,
                 style: TextStyle(
-                    color: Color(0xff191E2F),
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold),
+                  color: Color(0xff191E2F),
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Kanit',
+                ),
+                minFontSize: 20.0,
               ),
               SizedBox(
                 height: 24.0,
               ),
               Container(
-                child: Text(
+                child: AutoSizeText(
                   subtitle,
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   style: const TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 18.0,
                     color: Color(
                       0xff8D8D8D,
                     ),
                   ),
+                  minFontSize: 16.0,
                 ),
               ),
             ])),
@@ -155,7 +162,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
               },
               child: const Text(
                 "Get Start",
-                style: TextStyle(fontSize: 24.0),
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontFamily: 'Kanit',
+                ),
               ))
           : Container(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -168,8 +178,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: const Text(
                       "Skip",
                       style: TextStyle(
-                        fontSize: 14.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Kanit',
                         color: Color(0xff263A96),
                       ),
                     ),
@@ -197,8 +208,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: const Text(
                       "Next",
                       style: TextStyle(
-                        fontSize: 14.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Kanit',
                         color: Color(0xff263A96),
                       ),
                     ),
